@@ -15,11 +15,16 @@ def isNumerable(x):
         return False
 
 #Constantes de carpetas
-DATAFOLDER = "Data/"
-DATASAVES = DATAFOLDER+"saves/"
-DATADOCS = DATAFOLDER+"docs/"
-DATALANG = DATAFOLDER+"langs/"
-DATAICONS = DATAFOLDER+"icons/"
+#Modificación para mejorar las rutas relativas para los iconos y archivos.
+#propuesta por: Alejandro Campos (acamfue@gmail.com)
+import os
+DIRNAME = os.path.dirname(__file__)
+DATAFOLDER = os.path.join(DIRNAME, 'Data\\')
+#DATAFOLDER = "Data/"
+DATASAVES = DATAFOLDER+"saves\\"
+DATADOCS = DATAFOLDER+"docs\\"
+DATALANG = DATAFOLDER+"langs\\"
+DATAICONS = DATAFOLDER+"icons\\"
 
 #Informacion del programa
 VERSION = 5.0,1.0
@@ -67,9 +72,9 @@ except:
     lib("sonido","fatal")
     try:
         lib("conf_file",False,[CONFIGURATIONFILE,C_DATA])
-        print "IO/MESSAGE: Generado nuevo archivo de configuraciones"
+        print("IO/MESSAGE: Generado nuevo archivo de configuraciones")
     except:
-        print "ERROR - 0,1: No se puede crear archivo de configuraciones"
+        print("ERROR - 0,1: No se puede crear archivo de configuraciones")
 
 #Constantes de configuracion predefinidas
 DEFAULT_TITLE = "PaintSav"
